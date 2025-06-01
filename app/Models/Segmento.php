@@ -9,4 +9,9 @@ class Segmento extends Model
 {
     /** @use HasFactory<\Database\Factories\SegmentoFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nome',
+        'deleted_at',
+    ];
 }
