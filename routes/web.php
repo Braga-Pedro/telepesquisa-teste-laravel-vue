@@ -1,17 +1,26 @@
 <?php
 
+use App\Http\Controllers\Empresas\EmpresaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect()->route('empresas.index');
+});
+
+Route::prefix('empresas')->name('empresas.')->group(function () {
+    Route::get('/', [EmpresaController::class, 'index'])->name('index');
+    Route::post('/', [EmpresaController::class, 'store'])->name('store');
 });
 
 Route::get('/dashboard', function () {
