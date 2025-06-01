@@ -99,6 +99,8 @@ class EmpresaController extends Controller
             );
             $validatedData['segmento_id'] = $segmento->id;
         }
+
+        return $validatedData;
     }
 
     /**
