@@ -13,7 +13,7 @@ services:
       - "9000:9000"
       - "5173:5173"
     depends_on:
-      - mysql # seu serviço do banco de dados
+      - mysql
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
       - COMPOSE_BAKE=true
