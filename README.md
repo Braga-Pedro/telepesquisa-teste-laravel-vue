@@ -17,26 +17,21 @@ Siga os passos abaixo para subir o ambiente completo:
    docker-compose up --build -d
    ```
 
-2. **Dê permissão nas pastas necessárias:**
-   ```sh
-   docker-compose exec app chmod -R 777 storage bootstrap/cache public
-   ```
-
-3. **Execute as migrations do banco de dados:**
+2. **Execute as migrations do banco de dados:**
    ```sh
    docker-compose exec app php artisan migrate
    ```
 
-4. **Gere os assets do frontend para produção:**
+3. **Comando único:**
    ```sh
-   docker-compose exec app npm run build
+   docker-compose down -v; docker-compose up --build -d; php artisa migrate
    ```
 
-5. **Acesse o sistema:**
+4. **Acesse o sistema:**
    - Backend: [http://localhost:8080](http://localhost:8080)
 
 
-Pronto! O ambiente estará disponível para uso.
+Pronto! O sistema já está acessível para uso.
 
 ## Cadastro de Empresas
 
